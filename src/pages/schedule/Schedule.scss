@@ -1,0 +1,13 @@
+@import '../../../node_modules/react-big-calendar/lib/sass/styles';
+@import '../../../node_modules/react-big-calendar/lib/addons/dragAndDrop/styles';
+
+.rbc-background-event {
+  background: repeating-linear-gradient(
+                  45deg,                         /* Угол наклона полос */
+                  rgba(160, 50, 50, 0.7),        /* Темно-красный с прозрачностью */
+                  rgba(160, 50, 50, 0.7) 20px,   /* Длина первой полосы */
+                  rgba(90, 30, 30, 0.7) 20px,    /* Темно-серый/темно-красный цвет с прозрачностью */
+                  rgba(90, 30, 30, 0.7) 40px     /* Длина второй полосы */
+  ) !important;
+  z-index: 1;
+}

@@ -1,0 +1,5 @@
+{
+  "servicePath": "src/services/HttpClientService",
+  "storePath": "src/stores",
+  "rootStorePath": "src/contexts/RootStoreContext.tsx"
+}
