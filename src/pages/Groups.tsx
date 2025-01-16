@@ -7,6 +7,7 @@ import FilterPanel from "../modules/filters/FilterPanel.tsx";
 import {useStore} from "../contexts/store/RootStoreContext.tsx";
 import {observer} from "mobx-react-lite";
 import GroupsTable from "../modules/tables/GroupsTable.tsx";
+import CreateUserModal from "../modules/modals/CreateUserModal.tsx";
 
 const Groups = () => {
 
@@ -16,9 +17,15 @@ const Groups = () => {
         Group.getAll()
     },[])
 
+    const actions = [
+        {label: 'Добавить', type: 'primary', modal: <CreateUserModal/>, callback: () => console.log('Добавить')},
+        {label: 'Изменить', type: '', modal: <></>, callback: () => console.log('Изменить')},
+        {label: 'Удалить', type: '', modal: <></>, callback: () => console.log('Удалить')},
+    ]
+
     return (
         <Template>
-            <ActionBar/>
+            <ActionBar actions={actions}/>
             <Row gutter={16}>
                 <Col span={20}>
                     <Card bordered={false} style={{ width: '100%' }} size={'small'}>

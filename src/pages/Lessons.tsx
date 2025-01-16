@@ -11,6 +11,7 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 // Storybook cannot alias this, so you would use 'react-big-calendar/lib/addons/dragAndDrop/styles.scss'
 import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop'
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css'
+import CreateUserModal from "../modules/modals/CreateUserModal.tsx";
 moment.locale('ru');
 
 const DragAndDropCalendar = withDragAndDrop(Calendar)
@@ -90,12 +91,18 @@ const formats = {
         `${localizer.format(start, 'HH:mm', culture)} - ${localizer.format(end, 'HH:mm', culture)}`,
 };
 
+
+
 const Lessons = () => {
     const [myEvents, setMyEvents] = useState(events)
     const [copyEvent, setCopyEvent] = useState(false)
 
     const toggleCopyEvent = useCallback(() => setCopyEvent((val) => !val), [])
-
+    const actions = [
+        {label: 'Добавить', type: 'primary', modal: <CreateUserModal/>, callback: () => console.log('Добавить')},
+        {label: 'Изменить', type: '', modal: <></>, callback: () => console.log('Изменить')},
+        {label: 'Удалить', type: '', modal: <></>, callback: () => console.log('Удалить')},
+    ]
     const moveEvent = useCallback(
         ({
              event,
@@ -176,7 +183,7 @@ const Lessons = () => {
     )
     return (
         <Template>
-            <ActionBar/>
+            <ActionBar actions={actions}/>
             <Card bordered={false} size={'small'}>
                 <div style={{height: 700}}>
                     <DragAndDropCalendar

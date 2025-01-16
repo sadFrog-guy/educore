@@ -13,6 +13,7 @@ import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop'
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css'
 moment.locale('ru');
 import './Schedule.scss'
+import CreateUserModal from "../../modules/modals/CreateUserModal.tsx";
 
 const DragAndDropCalendar = withDragAndDrop(Calendar)
 
@@ -171,10 +172,15 @@ const Lessons = () => {
             resourceId: [1,2,3,4],
         },
     ]
+    const actions = [
+        {label: 'Добавить', type: 'primary', modal: <CreateUserModal/>, callback: () => console.log('Добавить')},
+        {label: 'Изменить', type: '', modal: <></>, callback: () => console.log('Изменить')},
+        {label: 'Удалить', type: '', modal: <></>, callback: () => console.log('Удалить')},
+    ]
 
     return (
         <Template>
-            <ActionBar/>
+            <ActionBar actions={actions}/>
             <Card bordered={false} size={'small'}>
                 <div style={{height: 700}}>
                     <DragAndDropCalendar

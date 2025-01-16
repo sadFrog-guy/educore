@@ -17,8 +17,6 @@ const stores = {
     Student,
     Group,
     User
-    // Новый стоор
-    // NewStore,
 };
 
 // Создаем контекст, который будет хранить все store

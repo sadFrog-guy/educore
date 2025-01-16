@@ -23,6 +23,8 @@
     "noUncheckedSideEffectImports": false,
     "noImplicitAny": false,
 
+    "suppressImplicitAnyIndexErrors": true, // Подавляет ошибки индексации
+
   },
   "include": ["src"]
 }

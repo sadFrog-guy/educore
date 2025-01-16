@@ -5,47 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4bccdae2-951d-4476-819b-e1a0b388860e" name="Changes" comment="Rebuild">
-      <change afterPath="$PROJECT_DIR$/oder7.config.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/blocks/CreateUserForm.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/contexts/RootStoreContext.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/contexts/themeContext/ThemeContext.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/contexts/themeContext/themes.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/filters/FilterPanel.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/layout/ActionBar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/layout/BreadCrumbs.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/layout/MyFooter.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/layout/MyHeader.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/layout/MySider.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/modals/CreateUserModal.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/tables/GroupsTable.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/tables/StudentsTable.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Auth.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Develop.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Groups.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Lessons.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Students.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/schedule/Schedule.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/schedule/Schedule.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/template/Template.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/template/Template.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/AppRoutes.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/routes.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/HttpClientService/UserService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/HttpClientService/base/baseService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/HttpClientService/branchService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/HttpClientService/groupService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/HttpClientService/studentService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/axios/client.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/axios/settings.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/stores/BrancheStore.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/stores/GroupStore.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/stores/StudentStore.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/stores/UserStore.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/stores/base/BaseStore.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/theme/themeToken.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/findAvailableSlots.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/blocks/GenerateForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/modals/CreateGroupModel.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/blocks/CreateUserForm.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/contexts/store/RootStoreContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/contexts/store/RootStoreContext.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/layout/ActionBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/layout/ActionBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/modals/CreateUserModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/modals/CreateUserModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Develop.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Develop.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Groups.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Groups.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Lessons.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Lessons.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Students.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Students.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/schedule/Schedule.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/schedule/Schedule.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.app.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.app.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,11 +65,11 @@
       <recent name="D:\User\Desktop\EduCore_frontend\src\components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Projects\EduCore_frontend\src\contexts\store" />
       <recent name="C:\Projects\EduCore_frontend\src\services\axios" />
       <recent name="C:\Projects\EduCore_frontend\src\modules\layout" />
       <recent name="C:\Projects\EduCore_frontend\src\modules\modals" />
       <recent name="C:\Projects\EduCore_frontend\src\modules\filters" />
-      <recent name="C:\Projects\EduCore_frontend\src\modules\tables" />
     </key>
   </component>
   <component name="RunManager">
@@ -145,7 +117,7 @@
       <workItem from="1736696608894" duration="1801000" />
       <workItem from="1736710209731" duration="26373000" />
       <workItem from="1736899311782" duration="4744000" />
-      <workItem from="1736972963156" duration="12030000" />
+      <workItem from="1736972963156" duration="25590000" />
     </task>
     <task id="LOCAL-00001" summary="Rebuild">
       <option name="closed" value="true" />
@@ -155,7 +127,23 @@
       <option name="project" value="LOCAL" />
       <updated>1734210462326</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Rebuild">
+      <option name="closed" value="true" />
+      <created>1737017839855</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1737017839855</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Rebuild">
+      <option name="closed" value="true" />
+      <created>1737018044160</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1737018044160</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
