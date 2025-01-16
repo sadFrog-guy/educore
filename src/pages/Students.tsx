@@ -4,7 +4,7 @@ import ActionBar from "../modules/layout/ActionBar.tsx";
 import {Card, Col, Row} from "antd";
 import StudentsTable from "../modules/tables/StudentsTable.tsx";
 import FilterPanel from "../modules/filters/FilterPanel.tsx";
-import {useStore} from "../contexts/RootStoreContext.tsx";
+import {useStore} from "../contexts/store/RootStoreContext.tsx";
 import {observer} from "mobx-react-lite";
 import CreateUserModal from "../modules/modals/CreateUserModal.tsx";
 

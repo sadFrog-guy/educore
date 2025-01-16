@@ -2,7 +2,7 @@ import React from 'react';
 
 import {Button, Form, Input, Modal, notification} from "antd";
 import {Formik} from "formik";
-import {useStore} from "../contexts/RootStoreContext.tsx";
+import {useStore} from "../contexts/store/RootStoreContext.tsx";
 import * as Yup from "yup";
 
 const CreateUserForm = () => {

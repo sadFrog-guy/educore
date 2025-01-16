@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Modal, Form, Input, Button, Select, message, notification} from 'antd';
-import {useStore} from "../../contexts/RootStoreContext.tsx";
+import {useStore} from "../../contexts/store/RootStoreContext.tsx";
 import {observer} from "mobx-react-lite";
 import CreateUserForm from "../../blocks/CreateUserForm.tsx";
 

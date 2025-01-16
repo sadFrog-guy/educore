@@ -1,9 +1,9 @@
 import React, { createContext, useContext } from 'react';
 
-import BrancheStore from '../stores/BrancheStore.ts';
-import StudentStore from "../stores/StudentStore.ts";
-import GroupStore from "../stores/GroupStore.ts";
-import UserStore from "../stores/UserStore.ts";
+import BrancheStore from '../../stores/BrancheStore.ts';
+import StudentStore from "../../stores/StudentStore.ts";
+import GroupStore from "../../stores/GroupStore.ts";
+import UserStore from "../../stores/UserStore.ts";
 
 // Экземпляры сторов
 const Branche = new BrancheStore();

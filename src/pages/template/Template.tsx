@@ -1,4 +1,4 @@
-import {useStore} from "../../contexts/RootStoreContext.tsx";
+import {useStore} from "../../contexts/store/RootStoreContext.tsx";
 import {observer} from "mobx-react-lite";
 import StudentsTable from "../../modules/tables/StudentsTable.tsx";
 import {useEffect, useState} from "react";
