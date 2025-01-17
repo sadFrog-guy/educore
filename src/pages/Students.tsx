@@ -18,7 +18,7 @@ const Students = () => {
 
 
     const actions = [
-        {label: 'Добавить', type: 'primary', modal: <CreateUserModal/>, callback: () => User.openModal()},
+        {label: 'Добавить', type: 'primary', modal: <CreateUserModal/>, callback: () => User.modals.openModal('create')},
         {label: 'Изменить', type: '', modal: <></>, callback: () => console.log('Изменить')},
         {label: 'Удалить', type: '', modal: <></>, callback: () => console.log('Удалить')},
     ]

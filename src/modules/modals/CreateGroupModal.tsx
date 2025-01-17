@@ -1,7 +1,11 @@
 import React from 'react';
 import {useStore} from "../../contexts/store/RootStoreContext.tsx";
+import GenerateForm from "../../blocks/GenerateForm.tsx";
+import {Modal} from "antd";
+import * as Yup from "yup";
+import {observer} from "mobx-react-lite";
 
-const CreateGroupModel = () => {
+const CreateGroupModal = () => {
 
     const { Group } = useStore();
 
@@ -15,27 +19,19 @@ const CreateGroupModel = () => {
                 initialValue: '',
                 type: '',
             },
-            course: {
-                validationMethod: Yup.mixed().required('Course is required'),
-                initialValue: null,
-                type: '',// Для связи с моделью Course
-            },
             start_date: {
-                validationMethod: Yup.date().nullable().required('Start date is required'),
+                validationMethod: Yup.date().required('Start date is required').nullable(),
                 initialValue: null,
                 type: 'date',
             },
             end_date: {
-                validationMethod: Yup.date().nullable().required('End date is required'),
+                validationMethod: Yup.date().required('End date is required').nullable(),
                 initialValue: null,
                 type: 'date',
             },
             status: {
                 options,
-                validationMethod: Yup.string().oneOf(
-                    options,
-                    'Invalid status'
-                ).required('Status is required'),
+                validationMethod: Yup.string().oneOf(options,'Invalid status').required('Status is required').nullable(),
                 initialValue: 'RECRUITING',
                 type: 'select',// Статус по умолчанию
             },
@@ -44,14 +40,21 @@ const CreateGroupModel = () => {
         preventiveValue: {
             branch: 1
         },
+        modalType: 'create',
         // handleSubmit: () => {}
     };
 
     return (
-        <div>
-
-        </div>
+        <Modal
+            title="Create Group"
+            open={Group.modals.isCreateOpen}
+            onCancel={() => Group.modals.closeModal('create')}
+            footer={null} // Мы будем использовать кастомные кнопки
+            destroyOnClose
+        >
+            <GenerateForm formSchema={formSchema}/>
+        </Modal>
     );
 };
 
-export default CreateGroupModel;
+export default observer(CreateGroupModal);
