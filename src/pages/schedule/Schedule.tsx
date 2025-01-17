@@ -76,6 +76,10 @@ const formats = {
         `${localizer.format(start, 'HH:mm', culture)} - ${localizer.format(end, 'HH:mm', culture)}`, // Формат времени событий
     agendaTimeRangeFormat: ({ start, end }, culture, localizer) =>
         `${localizer.format(start, 'HH:mm', culture)} - ${localizer.format(end, 'HH:mm', culture)}`,
+
+    // Формат для отображения только дней недели
+    dayFormat: (date, culture, localizer) =>
+        localizer.format(date, 'dddd', culture), // Только день недели, например "понедельник"
 };
 
 const Lessons = () => {
@@ -170,6 +174,7 @@ const Lessons = () => {
             start: new Date(2018, 0, 29, 6),
             end: new Date(2018, 0, 29, 8),
             resourceId: [1,2,3,4],
+            isBackgroundEvent: true,
         },
     ]
     const actions = [
@@ -177,6 +182,7 @@ const Lessons = () => {
         {label: 'Изменить', type: '', modal: <></>, callback: () => console.log('Изменить')},
         {label: 'Удалить', type: '', modal: <></>, callback: () => console.log('Удалить')},
     ]
+
 
     return (
         <Template>
@@ -186,7 +192,7 @@ const Lessons = () => {
                     <DragAndDropCalendar
                         backgroundEvents={backgroundEvents}
                         defaultDate={defaultDate}
-                        defaultView={Views.DAY}
+                        defaultView={Views.WEEK}
                         events={myEvents}
                         localizer={localizer}
                         onEventDrop={moveEvent}
@@ -204,6 +210,34 @@ const Lessons = () => {
                         min={new Date(1970, 1, 1, 6, 0)} // Начало дня в 6 утра
                         max={new Date(1970, 1, 1, 22, 0)}
                         popup={true}
+                        toolbar={false}
+                        resourceGroupingLayout={true}
+                        // components={{
+                        //     eventWrapper: ({ children, style, event }) => {
+                        //         const isBackgroundEvent = event.isBackgroundEvent;
+                        //
+                        //         return (
+                        //             <div
+                        //                 className={isBackgroundEvent ? 'rbc-background-event' : 'custom-event-wrapper'}
+                        //                 style={{
+                        //                     ...style,  // Сохраняем стиль по умолчанию
+                        //                     ...(isBackgroundEvent && {
+                        //                         background: 'repeating-linear-gradient(45deg, rgba(160, 50, 50, 0.7), rgba(160, 50, 50, 0.7) 20px, rgba(90, 30, 30, 0.7) 20px, rgba(90, 30, 30, 0.7) 40px)',
+                        //                         zIndex: 1,
+                        //                         borderRadius: '0',        // Убираем закругления
+                        //                         width: `calc(${(resourceMap.length * 100)}% + ${(resourceMap.length * 10) + resourceMap.length}px)`,  // Расширяем до полной ширины
+                        //                         left: 0,                  // Начинаем с края ресурса
+                        //                         right: 0,                 // Заканчиваем на другом краю
+                        //                         height: '50px',           // Задаем высоту для фоновых событий
+                        //                     }),
+                        //                 }}
+                        //             >
+                        //                 {children} {/* Стандартное содержимое события */}
+                        //             </div>
+                        //         );
+                        //     },
+                        //
+                        // }}
                     />
                 </div>
             </Card>

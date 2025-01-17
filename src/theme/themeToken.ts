@@ -11,6 +11,6 @@ export default {
             // borderRadius: 15
         }
     },
-    // algorithm: theme.defaultAlgorithm,
-    algorithm: [theme.darkAlgorithm, theme.compactAlgorithm],
+    algorithm: theme.defaultAlgorithm,
+    // algorithm: [theme.darkAlgorithm, theme.compactAlgorithm],
 }
