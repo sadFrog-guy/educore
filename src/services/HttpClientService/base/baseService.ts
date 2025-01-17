@@ -22,7 +22,7 @@ class BaseService {
     // Метод для получения одной сущности по ID
     async getById(id: string) {
         try {
-            const response = await client.get(`${this.endpoint}/${id}`);
+            const response = await client.get(`${this.endpoint}${id}`);
             return response; // Возвращаем сам объект response
         } catch (error) {
             console.error(`Ошибка при получении данных для сущности ${this.endpoint} с ID ${id}:`, error);

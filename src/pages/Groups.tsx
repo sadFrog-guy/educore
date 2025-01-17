@@ -10,7 +10,6 @@ import GroupsTable from "../modules/tables/GroupsTable.tsx";
 import CreateUserModal from "../modules/modals/CreateUserModal.tsx";
 
 const Groups = () => {
-
     const { Group } = useStore();
 
     useEffect(() => {

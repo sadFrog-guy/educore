@@ -10,13 +10,11 @@ import CreateUserModal from "../modules/modals/CreateUserModal.tsx";
 import * as Yup from "yup";
 
 const Students = () => {
-
     const { Student, User } = useStore();
 
     useEffect(() => {
         User.getAll()
     },[])
-
 
 
     const actions = [

@@ -6,6 +6,7 @@ export default class BaseStore {
     error: string | null = null;
     service: any;
     objects: any[] = []; // Храним все данные в одном атрибуте "objects"
+    current: any = {};
 
     constructor(service: any) {
         this.service = service;
@@ -13,6 +14,7 @@ export default class BaseStore {
             isLoading: observable,
             error: observable,
             objects: observable,
+            current: observable,
             getAll: action,
             getById: action,
             create: action,
@@ -46,6 +48,7 @@ export default class BaseStore {
 
         try {
             const response = await this.service.getById(id);
+            this.current = response.data
             return response; // Возвращаем весь объект response для получения статуса
         } catch (error) {
             this.error = `Ошибка при получении данных для ${this.service.endpoint} с ID ${id}`;
@@ -118,5 +121,9 @@ export default class BaseStore {
 
     setLoading(state: boolean) {
         this.isLoading = state;
+    }
+
+    destroyCurrent() {
+        this.current = {};
     }
 }

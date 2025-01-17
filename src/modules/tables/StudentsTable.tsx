@@ -6,7 +6,7 @@ interface DataType {
     data: TableColumnsType;
     key: React.Key;
     first_name: string;
-    last_name: number;
+    last_name: string;
     groups_count: number;
 }
 
