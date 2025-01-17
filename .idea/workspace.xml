@@ -5,17 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4bccdae2-951d-4476-819b-e1a0b388860e" name="Changes" comment="Rebuild">
-      <change afterPath="$PROJECT_DIR$/src/stores/base/ModalState.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blocks/GenerateForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/GenerateForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/modals/CreateGroupModel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/modals/CreateGroupModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/modals/CreateUserModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/modals/CreateUserModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Groups.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Groups.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Students.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Students.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stores/GroupStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/GroupStore.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stores/base/BaseStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/base/BaseStore.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +13,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -49,25 +44,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Projects/EduCore_frontend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Projects\\EduCore_frontend\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Projects/EduCore_frontend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.dev.executor": "Run",
+    "settings.editor.selected.configurable": "Errors",
+    "ts.external.directory.path": "C:\\Projects\\EduCore_frontend\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Projects\EduCore_frontend" />
@@ -128,7 +123,7 @@
       <workItem from="1736710209731" duration="26373000" />
       <workItem from="1736899311782" duration="4744000" />
       <workItem from="1736972963156" duration="32492000" />
-      <workItem from="1737077496945" duration="6428000" />
+      <workItem from="1737077496945" duration="7965000" />
     </task>
     <task id="LOCAL-00001" summary="Rebuild">
       <option name="closed" value="true" />
@@ -154,7 +149,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737018044160</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Rebuild">
+      <option name="closed" value="true" />
+      <created>1737086331978</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1737086331978</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
