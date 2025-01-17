@@ -8,6 +8,7 @@ import {useStore} from "../contexts/store/RootStoreContext.tsx";
 import {observer} from "mobx-react-lite";
 import CreateUserModal from "../modules/modals/CreateUserModal.tsx";
 import * as Yup from "yup";
+import StandartCard from '../components/StandartCard.tsx';
 
 const Students = () => {
     const { Student, User } = useStore();
@@ -28,9 +29,9 @@ const Students = () => {
             <ActionBar actions={actions}/>
             <Row gutter={16}>
                 <Col span={20}>
-                    <Card bordered={false} style={{ width: '100%' }} size={'small'}>
+                    <StandartCard>
                         <StudentsTable dataSource={User.objects} loading={User.isLoading} rowKey="id" />
-                    </Card>
+                    </StandartCard>
                 </Col>
                 <Col span={4}>
                     <FilterPanel/>

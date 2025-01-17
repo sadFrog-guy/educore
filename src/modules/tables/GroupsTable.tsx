@@ -3,6 +3,7 @@ import { Flex, Table, Typography } from 'antd';
 import type { TableColumnsType, TableProps } from 'antd';
 import { RightSquareFilled, RightSquareOutlined, RightSquareTwoTone } from '@ant-design/icons';
 import { useNavigate } from 'react-router';
+import EnterButton from '../../components/EnterButton';
 
 interface DataType {
     data: TableColumnsType;
@@ -23,17 +24,9 @@ const GroupsTable = (props) => {
             title: 'Название',
             dataIndex: 'name',
             render: (name, record: DataType) => (
-                <Flex align='center' gap={8}>
-                    <Text>{name}</Text>
-
-                    <RightSquareOutlined 
-                        style={{
-                            color: "white",
-                            cursor: "pointer"
-                        }} 
-                        onClick={() => navigate(`/groups/${record.id}`)}
-                    />
-                </Flex>
+                <EnterButton>
+                    {name}
+                </EnterButton>
             )
     },
         {
