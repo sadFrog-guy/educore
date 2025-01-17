@@ -8,6 +8,7 @@ import {useStore} from "../contexts/store/RootStoreContext.tsx";
 import {observer} from "mobx-react-lite";
 import GroupsTable from "../modules/tables/GroupsTable.tsx";
 import CreateUserModal from "../modules/modals/CreateUserModal.tsx";
+import CreateGroupModal from "../modules/modals/CreateGroupModal.tsx";
 
 const Groups = () => {
 
@@ -18,7 +19,7 @@ const Groups = () => {
     },[])
 
     const actions = [
-        {label: 'Добавить', type: 'primary', modal: <CreateUserModal/>, callback: () => console.log('Добавить')},
+        {label: 'Добавить', type: 'primary', modal: <CreateGroupModal/>, callback: () => Group.modals.openModal('create')},
         {label: 'Изменить', type: '', modal: <></>, callback: () => console.log('Изменить')},
         {label: 'Удалить', type: '', modal: <></>, callback: () => console.log('Удалить')},
     ]

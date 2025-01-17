@@ -33,15 +33,16 @@ const CreateUserModal = ({children}) => {
             preventiveValue: {
                 role: 'student',
                 branch: 1
-            }
+            },
+            modalType: 'create'
             // handleSubmit: () => {}
         }
 
     return (
         <Modal
             title="Create Student"
-            open={User.isCreateUserOpen}
-            onCancel={() => User.closeModal()}
+            open={User.modals.isCreateOpen}
+            onCancel={() => User.modals.closeModal('create')}
             footer={null} // Мы будем использовать кастомные кнопки
             destroyOnClose
         >

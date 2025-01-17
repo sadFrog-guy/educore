@@ -5,19 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4bccdae2-951d-4476-819b-e1a0b388860e" name="Changes" comment="Rebuild">
-      <change afterPath="$PROJECT_DIR$/src/blocks/GenerateForm.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/modals/CreateGroupModel.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/stores/base/ModalState.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blocks/CreateUserForm.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/contexts/store/RootStoreContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/contexts/store/RootStoreContext.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/layout/ActionBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/layout/ActionBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/blocks/GenerateForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/GenerateForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/modals/CreateGroupModel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/modals/CreateGroupModal.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/modals/CreateUserModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/modals/CreateUserModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Develop.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Develop.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Groups.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Groups.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Lessons.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Lessons.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Students.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Students.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/schedule/Schedule.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/schedule/Schedule.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.app.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stores/GroupStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/GroupStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stores/base/BaseStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/base/BaseStore.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +25,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Crooter777&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/sadFrog-guy/educore.git&quot;,
+    &quot;accountId&quot;: &quot;3f97af89-8aef-4ecd-b79b-d271243d087f&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 6
@@ -43,7 +53,7 @@
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Projects/EduCore_frontend&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
@@ -117,7 +127,8 @@
       <workItem from="1736696608894" duration="1801000" />
       <workItem from="1736710209731" duration="26373000" />
       <workItem from="1736899311782" duration="4744000" />
-      <workItem from="1736972963156" duration="25590000" />
+      <workItem from="1736972963156" duration="32492000" />
+      <workItem from="1737077496945" duration="6428000" />
     </task>
     <task id="LOCAL-00001" summary="Rebuild">
       <option name="closed" value="true" />

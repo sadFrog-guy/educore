@@ -1,4 +1,5 @@
 import { makeObservable, observable, action } from "mobx";
+import ModalState from "./ModalState.ts";
 
 // Универсальный BaseStore
 export default class BaseStore {
@@ -6,9 +7,11 @@ export default class BaseStore {
     error: string | null = null;
     service: any;
     objects: any[] = []; // Храним все данные в одном атрибуте "objects"
+    modals: any[]
 
     constructor(service: any) {
         this.service = service;
+        this.modals = new ModalState()
         makeObservable(this, {
             isLoading: observable,
             error: observable,
