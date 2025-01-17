@@ -1,7 +1,8 @@
-import { Table, TableColumnsType } from 'antd';
+import { Button, Flex, Space, Table, TableColumnsType } from 'antd';
 import React from 'react'
 import StatusTag from '../../components/StatusTag';
 import { studentAssociations } from '../../utils/associations';
+import EnterButton from '../../components/EnterButton';
 
 interface DataType {
     data: TableColumnsType;
@@ -13,23 +14,23 @@ interface DataType {
 
 const columns: TableColumnsType<DataType> = [
     {
-        title: 'Имя',
-        dataIndex: 'first_name',
+      title: 'Имя',
+      dataIndex: 'first_name',
     },
     {
-        title: 'Фамилия',
-        dataIndex: 'last_name',
+      title: 'Фамилия',
+      dataIndex: 'last_name',
     },
     {
-        title: 'Статус',
-        dataIndex: 'status',
-        render: (tag) => (
-          <StatusTag 
-            associations={studentAssociations}
-            name={tag}
-            tag={tag}
-          />
-        )
+      title: 'Статус',
+      dataIndex: 'status',
+      render: (tag) => (
+        <StatusTag 
+          associations={studentAssociations}
+          name={tag}
+          tag={tag}
+        />
+      )
     },
 ];
 
