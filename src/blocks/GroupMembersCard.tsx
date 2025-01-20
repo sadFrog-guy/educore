@@ -1,10 +1,10 @@
 import React from 'react'
-import StandartCard from './StandartCard'
+import StandartCard from '../components/StandartCard.tsx'
 import { Flex, Skeleton } from 'antd';
-import { useStore } from '../contexts/store/RootStoreContext';
-import GroupsMembersTable from '../modules/tables/GroupsMembersTable';
+import { useStore } from '../contexts/store/RootStoreContext.tsx';
+import GroupsMembersTable from '../modules/tables/GroupsMembersTable.tsx';
 import { observer } from 'mobx-react-lite';
-import ActionButtons from './ActionButtons';
+import ActionButtons from '../components/ActionButtons.tsx';
 
 function GroupMembersCard() {
   const { Group } = useStore();

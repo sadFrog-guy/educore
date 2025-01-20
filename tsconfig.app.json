@@ -25,6 +25,7 @@
 
     "suppressImplicitAnyIndexErrors": true, // Подавляет ошибки индексации
 
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src"]
 }

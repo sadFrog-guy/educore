@@ -4,13 +4,13 @@ import Template from './template/Template'
 import { useStore } from '../contexts/store/RootStoreContext'
 import { useParams } from 'react-router'
 import { observer } from 'mobx-react-lite'
-import GroupInfoCard from '../components/GroupInfoCard'
-import GroupMembersCard from '../components/GroupMembersCard'
+import GroupInfoCard from '../blocks/GroupInfoCard.tsx'
+import GroupMembersCard from '../blocks/GroupMembersCard.tsx'
 import StandartCard from '../components/StandartCard'
-import ScheduleCard from '../components/ScheduleCard'
+import ScheduleCard from '../blocks/scheduleCard/ScheduleCard.tsx'
 import ActionBar from '../modules/layout/ActionBar'
 import ActionButtons from '../components/ActionButtons'
-import GroupScheduleBar from '../components/GroupScheduleBar'
+import GroupScheduleBar from '../blocks/GroupScheduleBar.tsx'
 
 function GroupsDetail() {
   const {id} = useParams();

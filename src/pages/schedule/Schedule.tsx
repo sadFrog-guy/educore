@@ -1,163 +1,83 @@
 import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import Template from "../template/Template.tsx";
-import ActionBar from "../../modules/layout/ActionBar.tsx";
-import {Card, Col, Flex, Row, Radio, Typography, Divider} from "antd";
+import {Card, Col, Flex, Row, Radio, Typography, Divider, Space, Input, Select,} from "antd";
 import {observer} from "mobx-react-lite";
 
 import { Calendar, momentLocalizer, Views, DateLocalizer  } from 'react-big-calendar';
+import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop'
+
 import moment from 'moment';
 import 'moment/locale/ru';
-import 'react-big-calendar/lib/css/react-big-calendar.css';
-// Storybook cannot alias this, so you would use 'react-big-calendar/lib/addons/dragAndDrop/styles.scss'
-import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop'
-import 'react-big-calendar/lib/addons/dragAndDrop/styles.css'
 moment.locale('ru');
+
+import 'moment/locale/ru';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
+import 'react-big-calendar/lib/addons/dragAndDrop/styles.css'
 import './Schedule.scss'
-import CreateUserModal from "../../modules/modals/CreateUserModal.tsx";
+
+import ScheduleCard from "../../blocks/scheduleCard/ScheduleCard.tsx";
+import events from "./resources/events.ts";
+import formats from "./resources/formats.ts";
+import resourceMap from "./resources/resourceMap.ts";
 
 const DragAndDropCalendar = withDragAndDrop(Calendar)
 
 const localizer = momentLocalizer(moment);
 
-
-const events = [
-    {
-        id: 0,
-        title: 'Board meeting',
-        start: new Date(2018, 0, 29, 9, 0, 0),
-        end: new Date(2018, 0, 29, 13, 0, 0),
-        resourceId: 1,
-    },
-    {
-        id: 1,
-        title: 'MS training',
-        start: new Date(2018, 0, 29, 14, 0, 0),
-        end: new Date(2018, 0, 29, 16, 30, 0),
-        resourceId: 2,
-    },
-    {
-        id: 2,
-        title: 'Team lead meeting',
-        start: new Date(2018, 0, 29, 8, 30, 0),
-        end: new Date(2018, 0, 29, 12, 30, 0),
-        resourceId: 3,
-    },
-    {
-        id: 10,
-        title: 'Board meeting',
-        start: new Date(2018, 0, 30, 23, 0, 0),
-        end: new Date(2018, 0, 30, 23, 59, 0),
-        resourceId: 1,
-    },
-    {
-        id: 11,
-        title: 'Birthday Party',
-        start: new Date(2018, 0, 30, 7, 0, 0),
-        end: new Date(2018, 0, 30, 10, 30, 0),
-        resourceId: 4,
-    },
-]
-
-const resourceMap = [
-    { resourceId: 1, resourceTitle: 'Board room' },
-    { resourceId: 2, resourceTitle: 'Training room' },
-    { resourceId: 3, resourceTitle: 'Meeting room 1' },
-    { resourceId: 4, resourceTitle: 'Meeting room 2' },
-]
-
-// Получаем текущую дату
-const today = new Date();
-const startOfToday = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 0, 0);
-const endOfToday = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 23, 59);
-
-const formats = {
-    timeGutterFormat: 'HH:mm', // Формат времени в боковой колонке
-    eventTimeRangeFormat: ({ start, end }, culture, localizer) =>
-        `${localizer.format(start, 'HH:mm', culture)} - ${localizer.format(end, 'HH:mm', culture)}`, // Формат времени событий
-    agendaTimeRangeFormat: ({ start, end }, culture, localizer) =>
-        `${localizer.format(start, 'HH:mm', culture)} - ${localizer.format(end, 'HH:mm', culture)}`,
-
-    // Формат для отображения только дней недели
-    dayFormat: (date, culture, localizer) =>
-        localizer.format(date, 'dddd', culture), // Только день недели, например "понедельник"
-};
-
 const Lessons = () => {
     const [myEvents, setMyEvents] = useState(events)
-    const [copyEvent, setCopyEvent] = useState(false)
 
-    const toggleCopyEvent = useCallback(() => setCopyEvent((val) => !val), [])
+    const moveEvent = useCallback(({ event, start, end, resourceId, isAllDay: droppedOnAllDaySlot = false }) => {
+        // Создаем копию события
+        const updatedEvent = { ...event, start, end, resourceId, allDay: droppedOnAllDaySlot };
 
-    const moveEvent = useCallback(
-        ({
-             event,
-             start,
-             end,
-             resourceId,
-             isAllDay: droppedOnAllDaySlot = false,
-         }) => {
-            // Создаем копию события, чтобы избежать мутаций
-            const updatedEvent = { ...event };
+        setMyEvents((prev) => {
+            // Находим индекс события
+            const index = prev.findIndex((ev) => ev.id === updatedEvent.id);
 
-            // Если событие переместили на слот "весь день"
-            if (!updatedEvent.allDay && droppedOnAllDaySlot) {
-                updatedEvent.allDay = true;
-            }
+            // Если событие не найдено, возвращаем массив без изменений
+            if (index === -1) return prev;
 
-            // Устанавливаем новый ресурс для события (только один ресурс)
-            updatedEvent.resourceId = resourceId;
+            // Обновляем событие по индексу
+            const updatedEvents = [...prev];
+            updatedEvents[index] = updatedEvent;
 
-            // Обновляем состояние событий
-            setMyEvents((prev) => {
-                // Удаляем старую версию события
-                const filtered = prev.filter((ev) => ev.id !== updatedEvent.id);
-                // Добавляем обновленное событие
-                return [...filtered, { ...updatedEvent, start, end }];
-            });
-        },
-        [setMyEvents]
-    );
+            // Сортируем события по времени начала
+            return updatedEvents.sort((a, b) => new Date(a.start).getTime() - new Date(b.start).getTime());
+        });
+    }, [setMyEvents]);
 
-    const resizeEvent = useCallback(
-        ({ event, start, end }) => {
-            // @ts-ignore
-            setMyEvents((prev) => {
-                const existing = prev.find((ev) => ev.id === event.id) ?? {}
-                const filtered = prev.filter((ev) => ev.id !== event.id)
-                return [...filtered, { ...existing, start, end }]
-            })
-        },
-        [setMyEvents]
-    )
+    const resizeEvent = useCallback(({ event, start, end }) => {
+        setMyEvents((prev) => {
+            // Находим индекс события
+            const index = prev.findIndex((ev) => ev.id === event.id);
 
-    const handleSelectSlot = useCallback(
-        ({ start, end, resourceId, action }) => {
-            // Ожидаем, что событие будет создаваться только при выделении области (drag or click-and-drag)
-            if (action === 'click') {
-                return; // Не создаем событие при обычном клике
-            }
+            // Если событие не найдено, возвращаем массив без изменений
+            if (index === -1) return prev;
 
-            // Проверка: если начало и конец события находятся в одном шаге (step)
-            const stepDuration = 15 * 60 * 1000; // Шаг времени в миллисекундах (15 минут)
-            const eventDuration = end - start;
+            // Обновляем событие по индексу
+            const updatedEvents = [...prev];
+            updatedEvents[index] = { ...event, start, end };
 
-            if (eventDuration <= stepDuration) {
-                return; // Не создаем событие, если оно меньше одного шага
-            }
+            // Сортируем события по времени начала
+            return updatedEvents.sort((a, b) => new Date(a.start).getTime() - new Date(b.start).getTime());
+        });
+    }, [setMyEvents]);
 
-            // Создаем новое событие в выбранном ресурсе
-            const newEvent = {
-                title: "Новое событие",
-                start,
-                end,
-                resourceId, // Устанавливаем resourceId в зависимости от выделенного ресурса
-            };
+    const handleSelectSlot = useCallback(({ start, end, resourceId, action }) => {
+        if (action === 'click') return;
 
-            // @ts-ignore
-            setMyEvents((prev) => [...prev, newEvent]);
-        },
-        [setMyEvents]
-    );
+        const stepDuration = 15 * 60 * 1000; // 15 минут
+        if (end - start <= stepDuration) return;
+
+        const newEvent = { title: 'Новое событие', start, end, resourceId };
+
+        setMyEvents((prev) => {
+            const updatedEvents = [...prev, newEvent]; // Добавляем новое событие
+            // Сортируем по времени начала
+            return updatedEvents.sort((a, b) => new Date(a.start).getTime() - new Date(b.start).getTime());
+        });
+    }, [setMyEvents]);
 
     const { defaultDate, scrollToTime } = useMemo(
         () => ({
@@ -177,69 +97,84 @@ const Lessons = () => {
             isBackgroundEvent: true,
         },
     ]
-    const actions = [
-        {label: 'Добавить', type: 'primary', modal: <CreateUserModal/>, callback: () => console.log('Добавить')},
-        {label: 'Изменить', type: '', modal: <></>, callback: () => console.log('Изменить')},
-        {label: 'Удалить', type: '', modal: <></>, callback: () => console.log('Удалить')},
-    ]
-
 
     return (
         <Template>
-            <ActionBar actions={actions}/>
-            <Card bordered={false} size={'small'}>
-                <div style={{height: 700}}>
-                    <DragAndDropCalendar
-                        backgroundEvents={backgroundEvents}
-                        defaultDate={defaultDate}
-                        defaultView={Views.WEEK}
-                        events={myEvents}
-                        localizer={localizer}
-                        onEventDrop={moveEvent}
-                        onEventResize={resizeEvent}
-                        resizable
-                        resourceIdAccessor="resourceId"
-                        resources={resourceMap}
-                        resourceTitleAccessor="resourceTitle"
-                        scrollToTime={scrollToTime}
-                        onSelectSlot={handleSelectSlot}
-                        selectable
-                        showMultiDayTimes={true}
-                        step={15}
-                        formats={formats}
-                        min={new Date(1970, 1, 1, 6, 0)} // Начало дня в 6 утра
-                        max={new Date(1970, 1, 1, 22, 0)}
-                        popup={true}
-                        toolbar={false}
-                        resourceGroupingLayout={true}
-                        // components={{
-                        //     eventWrapper: ({ children, style, event }) => {
-                        //         const isBackgroundEvent = event.isBackgroundEvent;
-                        //
-                        //         return (
-                        //             <div
-                        //                 className={isBackgroundEvent ? 'rbc-background-event' : 'custom-event-wrapper'}
-                        //                 style={{
-                        //                     ...style,  // Сохраняем стиль по умолчанию
-                        //                     ...(isBackgroundEvent && {
-                        //                         background: 'repeating-linear-gradient(45deg, rgba(160, 50, 50, 0.7), rgba(160, 50, 50, 0.7) 20px, rgba(90, 30, 30, 0.7) 20px, rgba(90, 30, 30, 0.7) 40px)',
-                        //                         zIndex: 1,
-                        //                         borderRadius: '0',        // Убираем закругления
-                        //                         width: `calc(${(resourceMap.length * 100)}% + ${(resourceMap.length * 10) + resourceMap.length}px)`,  // Расширяем до полной ширины
-                        //                         left: 0,                  // Начинаем с края ресурса
-                        //                         right: 0,                 // Заканчиваем на другом краю
-                        //                         height: '50px',           // Задаем высоту для фоновых событий
-                        //                     }),
-                        //                 }}
-                        //             >
-                        //                 {children} {/* Стандартное содержимое события */}
-                        //             </div>
-                        //         );
-                        //     },
-                        //
-                        // }}
+            {/*<ActionBar actions={actions}/>*/}
+            <Card bordered={false} size={'small'} style={{ userSelect: 'none !important'}}>
+                <Flex vertical={true} gap={16}>
+                    <Select
+                        showSearch
+                        placeholder="Select a person"
+                        optionFilterProp="label"
+                        options={[
+                            {
+                                value: 'jack',
+                                label: 'Jack',
+                            },
+                            {
+                                value: 'lucy',
+                                label: 'Lucy',
+                            },
+                            {
+                                value: 'tom',
+                                label: 'Tom',
+                            },
+                        ]}
+                        style={{height: '100%', width: '215px'}}
                     />
-                </div>
+                    <Flex style={{
+                        flexDirection: 'row', // Горизонтальное расположение элементов
+                        overflowX: 'auto', // Включаем горизонтальный скроллинг
+                        whiteSpace: 'nowrap', // Запрещаем перенос строк
+                    }}>
+                        <Space>
+                            {myEvents.map((event) => {
+                                const dayOfWeek = moment(event.start).format('dddd') // Получаем день недели, например, "понедельник"
+                                const startTime = moment(event.start).format('HH:mm'); // Время начала события
+                                const endTime = moment(event.end).format('HH:mm'); // Время конца события
+
+                                return (
+                                    <ScheduleCard
+                                        key={startTime} // Добавляем уникальный ключ для списка
+                                        day={dayOfWeek} // Устанавливаем день недели
+                                        startTime={startTime} // Время начала
+                                        endTime={endTime} // Время конца
+                                        teacher="Адилет Касымбаев"
+                                        room={event.title}
+                                        size="small"
+                                    />
+                                );
+                            })}
+                        </Space>
+                    </Flex>
+                    <div style={{height: 600}}>
+                        <DragAndDropCalendar
+                            backgroundEvents={backgroundEvents}
+                            defaultDate={defaultDate}
+                            defaultView={Views.WEEK}
+                            events={myEvents}
+                            localizer={localizer}
+                            onEventDrop={moveEvent}
+                            onEventResize={resizeEvent}
+                            resizable
+                            resourceIdAccessor="resourceId"
+                            resources={resourceMap}
+                            resourceTitleAccessor="resourceTitle"
+                            scrollToTime={scrollToTime}
+                            onSelectSlot={handleSelectSlot}
+                            selectable
+                            showMultiDayTimes={true}
+                            step={15}
+                            formats={formats}
+                            min={new Date(1970, 1, 1, 6, 0)} // Начало дня в 6 утра
+                            max={new Date(1970, 1, 1, 22, 0)}
+                            popup={true}
+                            toolbar={false}
+                            resourceGroupingLayout={true}
+                        />
+                    </div>
+                </Flex>
             </Card>
         </Template>
     );

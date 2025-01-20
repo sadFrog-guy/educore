@@ -1,12 +1,12 @@
 import { Skeleton, Flex, Typography, Button, Space } from 'antd';
 import React from 'react'
-import { useStore } from '../contexts/store/RootStoreContext';
-import { groupAssociations } from '../utils/associations';
-import formatDateForDisplay from '../utils/formatDateForDisplay';
-import StandartCard from './StandartCard';
-import StatusTag from './StatusTag';
+import { useStore } from '../contexts/store/RootStoreContext.tsx';
+import { groupAssociations } from '../utils/associations.ts';
+import formatDateForDisplay from '../utils/formatDateForDisplay.ts';
+import StandartCard from '../components/StandartCard.tsx';
+import StatusTag from '../components/StatusTag.tsx';
 import { observer } from 'mobx-react-lite';
-import ActionButtons from './ActionButtons';
+import ActionButtons from '../components/ActionButtons.tsx';
 
 const { Title } = Typography;
 const { Text } = Typography;

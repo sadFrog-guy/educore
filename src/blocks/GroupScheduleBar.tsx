@@ -1,9 +1,9 @@
 import { Empty, Flex, Skeleton, Typography } from 'antd'
 import React from 'react'
-import ActionButtons from './ActionButtons'
-import ScheduleCard from './ScheduleCard'
-import StandartCard from './StandartCard'
-import { useStore } from '../contexts/store/RootStoreContext'
+import ActionButtons from '../components/ActionButtons.tsx'
+import ScheduleCard from './scheduleCard/ScheduleCard.tsx'
+import StandartCard from '../components/StandartCard.tsx'
+import { useStore } from '../contexts/store/RootStoreContext.tsx'
 import { observer } from 'mobx-react-lite'
 import { SettingOutlined } from '@ant-design/icons'
 

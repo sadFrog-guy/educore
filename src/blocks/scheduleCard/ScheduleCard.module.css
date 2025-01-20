@@ -1,0 +1,16 @@
+.card {
+    width: 215px;
+    height: 75px;
+    background-color: #5D9B9B;
+    border-radius: 5px;
+    border: 1px #265985 solid;
+    position: relative;
+    padding: 5px;
+    padding-top: 2px;
+}
+
+.closeIcon {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
